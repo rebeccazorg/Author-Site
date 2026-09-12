@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebecca Zorg — Canadian Hockey Romance Author</title>
+<meta name="description" content="Rebecca Zorg writes slow-burn, high-angst hockey romance full of grudges, grovels, and hard-earned second chances. Preorder The Penalty Box, out September 15.">
+
+<!-- Social share cards (Open Graph + Twitter).
+     REBECCA: create a 1200x630 image named og-image.jpg (your 3D
+     Penalty Box render on a Sin Bin Black background works perfectly)
+     and keep it in the same folder as this file. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rebeccazorg.com/">
+<meta property="og:title" content="Rebecca Zorg — Slow-Burn, High-Angst Hockey Romance">
+<meta property="og:description" content="Grudges, grovels, and hockey romance. Preorder The Penalty Box — September 15.">
+<meta property="og:image" content="https://rebeccazorg.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ============================================================
+     FAVICON — inline SVG "RZ" monogram (Liquid Gold on Sin Bin Black)
+     ============================================================ -->
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="%23161317"/><text x="32" y="44" font-family="Georgia,serif" font-size="30" font-weight="bold" fill="%23EDA85B" text-anchor="middle" letter-spacing="-2">RZ</text></svg>'>
+
+<!-- ============================================================
+     GOOGLE FONTS (the only external dependency)
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+<!-- SEO: structured data so Google understands you're an author with books -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Rebecca Zorg",
+  "url":"https://rebeccazorg.com",
+  "jobTitle":"Author",
+  "sameAs":[
+    "https://www.instagram.com/rebeccazorg/",
+    "https://www.goodreads.com/author/show/48108402.Rebecca_Zorg/",
+    "https://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1",
+    "https://www.bookbub.com/profile/rebecca-zorg"
+  ]
+}
+</script>
+
+<style>
+/* ================================================================
+   REBECCA — QUICK EDIT GUIDE
+   • Brand colors live in :root just below.
+   • All copy is in the HTML, marked with <!-- EDIT: ... --> comments.
+   • Images live in the SAME folder as this file. Exact filenames:
+       author-photo.jpg
+       penalty-box-cover.jpg
+       breakaway-baby-cover.jpg
+       penalty-box-3d.png
+       og-image.jpg (optional, for social share cards)
+   • Both forms are wired: MailerLite (newsletter) + Web3Forms (contact).
+   ================================================================ */
+
+/* ---------- 1. BRAND TOKENS ---------- */
+:root{
+  /* Site shell */
+  --sin-bin-black:#161317;
+  --concrete:#2A2530;
+  --first-frost:#BDD9FA;
+  --off-white:#F3F1EE;
+  --liquid-gold:#EDA85B;
+  /* The Penalty Box feature zone */
+  --icy-anger:#3E4A63;
+  --rust:#B4502E;
+  /* Sampled from the cover's smoke — softens the shell, reads romantic.
+     Used in: hero gradient (top right), Penalty Box zone gradient (middle),
+     newsletter panel gradient (top left). Raise the rgba() alpha values
+     at those three spots to make it more visible. */
+  --smoke-plum:#54415F;
+
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-label:'Bebas Neue',Impact,sans-serif;
+  --font-body:'Montserrat',Helvetica,Arial,sans-serif;
+
+  --max-width:1120px;
+  --nav-height:72px;
+}
+
+/* ---------- 2. RESET / BASE ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-height) + 12px)}
+body{
+  background:var(--sin-bin-black);
+  color:var(--off-white);
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--liquid-gold)}
+a:hover{color:var(--first-frost)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--liquid-gold);
+  outline-offset:3px;
+  border-radius:2px;
+}
+.wrap{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.eyebrow{
+  font-family:var(--font-label);
+  font-size:1rem;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  color:var(--liquid-gold);
+}
+.section-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(2rem,4.5vw,3rem);
+  color:var(--first-frost);
+  line-height:1.15;
+  margin:.35em 0 .6em;
+}
+
+/* ---------- 3. FILM GRAIN (signature texture) ---------- */
+.grain{
+  position:fixed;
+  inset:-50%;
+  width:200%;
+  height:200%;
+  pointer-events:none;
+  z-index:2000;
+  opacity:.06;
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+}
+
+/* ---------- 4. STICKY NAV ---------- */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:var(--nav-height);
+  z-index:1000;
+  background:rgba(22,19,23,.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(189,217,250,.12);
+}
+.nav-inner{
+  max-width:var(--max-width);
+  margin:0 auto;
+  height:100%;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.wordmark{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.15rem;
+  letter-spacing:.14em;
+  color:var(--off-white);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.wordmark:hover{color:var(--liquid-gold)}
+.nav-links{display:flex;gap:28px;list-style:none;margin-left:auto}
+.nav-links a{
+  font-family:var(--font-label);
+  font-size:1.05rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--off-white);
+  text-decoration:none;
+  padding:6px 2px;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;
+}
+.nav-links a:hover{color:var(--liquid-gold);border-bottom-color:var(--liquid-gold)}
+.nav-socials{display:flex;gap:14px;align-items:center}
+.social-link{
+  display:inline-flex;
+  width:34px;height:34px;
+  align-items:center;justify-content:center;
+  border-radius:50%;
+  color:var(--first-frost);
+  transition:color .2s,transform .2s;
+}
+.social-link:hover{color:var(--liquid-gold);transform:translateY(-2px)}
+.social-link svg{width:20px;height:20px;fill:currentColor}
+.menu-btn{
+  display:none;
+  margin-left:auto;
+  background:none;
+  border:1px solid rgba(189,217,250,.3);
+  border-radius:6px;
+  color:var(--off-white);
+  padding:8px 10px;
+  cursor:pointer;
+}
+.menu-btn svg{width:22px;height:22px;stroke:currentColor;display:block}
+@media (max-width:880px){
+  .menu-btn{display:block}
+  .nav-socials{display:none}
+  .nav-links{
+    position:absolute;
+    top:var(--nav-height);
+    left:0;right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(22,19,23,.97);
+    border-bottom:1px solid rgba(189,217,250,.12);
+    padding:8px 0 16px;
+    display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:14px 24px;border-bottom:none}
+}
+
+/* ---------- 5. HERO ---------- */
+.hero{
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+    radial-gradient(ellipse 85% 65% at 75% 20%,rgba(84,65,95,.62) 0%,transparent 64%),
+    radial-gradient(ellipse 70% 55% at 15% 85%,rgba(62,74,99,.42) 0%,transparent 65%),
+    var(--sin-bin-black);
+  padding:calc(var(--nav-height) + 40px) 0 90px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:48px;
+  align-items:center;
+}
+.hero-eyebrow{font-size:1.15rem;margin-bottom:20px}
+.hero h1{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(2.6rem,6.5vw,4.8rem);
+  letter-spacing:.05em;
+  line-height:1.05;
+  color:var(--off-white);
+  margin-bottom:26px;
+}
+.hero-tagline{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(1.25rem,2.5vw,1.7rem);
+  color:var(--first-frost);
+  max-width:560px;
+  line-height:1.5;
+  margin-bottom:38px;
+}
+/* 3D book render — floats gently, glows softly */
+.hero-book{position:relative;text-align:center}
+.hero-book::before{
+  content:"";
+  position:absolute;
+  inset:8% 4%;
+  background:radial-gradient(ellipse,rgba(189,217,250,.16) 0%,rgba(84,65,95,.18) 45%,transparent 72%);
+  filter:blur(12px);
+  z-index:0;
+}
+.hero-book img{
+  position:relative;
+  z-index:1;
+  max-height:min(66vh,560px);
+  width:auto;
+  margin:0 auto;
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,.6));
+  animation:bookfloat 7s ease-in-out infinite;
+}
+@keyframes bookfloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+.hero-book-caption{
+  position:relative;z-index:1;
+  margin-top:16px;
+  font-family:var(--font-label);
+  letter-spacing:.3em;
+  font-size:.9rem;
+  color:rgba(189,217,250,.7);
+}
+.btn{
+  display:inline-block;
+  font-family:var(--font-label);
+  font-size:1.1rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--sin-bin-black);
+  background:var(--liquid-gold);
+  border:2px solid var(--liquid-gold);
+  padding:14px 34px;
+  border-radius:4px;
+  cursor:pointer;
+  transition:background .2s,color .2s,transform .15s;
+}
+.btn:hover{background:transparent;color:var(--liquid-gold);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--first-frost);border-color:rgba(189,217,250,.5)}
+.btn-outline:hover{color:var(--liquid-gold);border-color:var(--liquid-gold)}
+.hero-scroll-hint{
+  position:absolute;
+  bottom:26px;left:50%;
+  transform:translateX(-50%);
+  color:rgba(189,217,250,.55);
+  font-family:var(--font-label);
+  letter-spacing:.3em;
+  font-size:.85rem;
+  text-decoration:none;
+}
+.hero-scroll-hint:hover{color:var(--liquid-gold)}
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-book img{max-height:46vh}
+}
+
+/* ---------- 6. TROPE PILLS ---------- */
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;padding:0;list-style:none}
+.pill{
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--first-frost);
+  border:1px solid rgba(189,217,250,.4);
+  border-radius:999px;
+  padding:6px 14px;
+  white-space:nowrap;
+}
+.pill-gold{color:var(--liquid-gold);border-color:var(--liquid-gold)}
+
+/* ---------- 7. BOOKS ---------- */
+.books{padding:110px 0 60px}
+.books-header{margin-bottom:56px}
+.book-card{
+  display:grid;
+  grid-template-columns:minmax(240px,340px) 1fr;
+  gap:56px;
+  align-items:center;
+  margin-bottom:96px;
+}
+.book-cover-frame img{
+  border-radius:6px;
+  box-shadow:0 24px 60px rgba(0,0,0,.55);
+  width:100%;
+}
+.badge{
+  display:inline-block;
+  font-family:var(--font-label);
+  font-size:.95rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  padding:6px 16px 4px;
+  border-radius:3px;
+  margin-bottom:18px;
+}
+.badge-soon{background:var(--rust);color:var(--off-white)}
+.badge-now{background:transparent;color:var(--liquid-gold);border:1px solid var(--liquid-gold)}
+.book-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(1.9rem,4vw,2.7rem);
+  color:var(--off-white);
+  line-height:1.1;
+  margin-bottom:12px;
+}
+.book-tagline{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1.15rem;
+  color:var(--first-frost);
+  margin-bottom:20px;
+}
+.book-hook{
+  font-family:var(--font-label);
+  font-size:clamp(1.35rem,2.4vw,1.7rem);
+  letter-spacing:.06em;
+  line-height:1.35;
+  color:var(--liquid-gold);
+  margin-bottom:20px;
+}
+.book-teaser{max-width:56ch;margin-bottom:26px;color:var(--off-white)}
+
+/* Faceoff divider — a quiet hockey signature between the books:
+   two thin "rink lines" meeting at a faceoff circle. */
+.faceoff-divider{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  max-width:520px;
+  margin:0 auto;
+  padding:56px 0;
+}
+.faceoff-divider span{
+  flex:1;
+  height:1px;
+  background:rgba(189,217,250,.25);
+}
+.faceoff-divider i{
+  width:16px;height:16px;
+  border:1.5px solid rgba(189,217,250,.5);
+  border-radius:50%;
+  position:relative;
+}
+.faceoff-divider i::after{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border-radius:50%;
+  background:rgba(189,217,250,.5);
+}
+
+/* --- The Penalty Box feature zone --- */
+.pb-zone{
+  background:
+    linear-gradient(135deg,rgba(62,74,99,.5) 0%,rgba(84,65,95,.55) 45%,rgba(42,37,48,.7) 100%),
+    var(--concrete);
+  border:1px solid rgba(189,217,250,.18);
+  border-radius:12px;
+  padding:64px 56px;
+  position:relative;
+  overflow:hidden;
+}
+.pb-zone::before{
+  content:"";
+  position:absolute;
+  top:-120px;right:-120px;
+  width:380px;height:380px;
+  background:radial-gradient(circle,rgba(189,217,250,.16) 0%,transparent 70%);
+  pointer-events:none;
+}
+.pb-zone .book-card{margin-bottom:0}
+.pb-title{
+  font-family:var(--font-label);
+  font-weight:400;
+  letter-spacing:.1em;
+  font-size:clamp(2.3rem,5vw,3.4rem);
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--first-frost);
+  text-shadow:0 0 22px rgba(189,217,250,.35);
+}
+@supports not (-webkit-text-stroke:1px black){
+  .pb-title{color:var(--first-frost)}
+}
+.pb-series{
+  font-family:var(--font-label);
+  letter-spacing:.3em;
+  font-size:.95rem;
+  color:var(--first-frost);
+  opacity:.8;
+  margin-bottom:16px;
+}
+@media (max-width:760px){
+  .book-card{grid-template-columns:1fr;gap:36px}
+  .book-cover-frame{max-width:280px;margin:0 auto}
+  .pb-zone{padding:40px 24px}
+}
+
+/* ---------- 7B. SPOTIFY PLAYLIST ---------- */
+.playlist-embed{
+  margin-top:28px;
+  max-width:560px;
+}
+.playlist-label{
+  font-family:var(--font-label);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-size:.95rem;
+  color:var(--first-frost);
+  margin-bottom:10px;
+}
+.playlist-embed iframe{
+  display:block;
+  width:100%;
+  border:0;
+}
+
+/* ---------- 8. ABOUT ---------- */
+.about{
+  padding:110px 0;
+  background:linear-gradient(180deg,var(--sin-bin-black) 0%,var(--concrete) 50%,var(--sin-bin-black) 100%);
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:minmax(240px,360px) 1fr;
+  gap:64px;
+  align-items:center;
+}
+.about-photo{
+  border-radius:8px;
+  border:1px solid rgba(189,217,250,.2);
+  padding:12px;
+  background:rgba(22,19,23,.5);
+}
+.about-photo img{border-radius:4px}
+.about-bio{max-width:62ch;font-size:1.05rem}
+.about-bio p + p{margin-top:1em}
+@media (max-width:760px){
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{max-width:300px;margin:0 auto}
+}
+
+/* ---------- 9. NEWSLETTER ---------- */
+.newsletter{padding:120px 0 70px}
+.newsletter-panel{
+  background:linear-gradient(140deg,rgba(84,65,95,.48),rgba(42,37,48,.9) 45%,rgba(22,19,23,.9));
+  border:1px solid rgba(237,168,91,.35);
+  border-radius:14px;
+  padding:72px 56px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.newsletter-panel::before{
+  content:"";
+  position:absolute;
+  bottom:-140px;left:50%;
+  transform:translateX(-50%);
+  width:520px;height:280px;
+  background:radial-gradient(ellipse,rgba(237,168,91,.14) 0%,transparent 70%);
+  pointer-events:none;
+}
+.newsletter h2{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(2rem,4.5vw,3rem);
+  color:var(--first-frost);
+  margin:.3em 0 .5em;
+}
+.newsletter-sub{max-width:56ch;margin:0 auto 36px;color:var(--off-white)}
+.signup-form{display:flex;gap:14px;max-width:520px;margin:0 auto}
+.signup-form input[type="email"]{
+  flex:1;
+  min-width:0;
+  background:rgba(22,19,23,.8);
+  border:1px solid rgba(189,217,250,.35);
+  border-radius:4px;
+  color:var(--off-white);
+  font-family:var(--font-body);
+  font-size:1rem;
+  padding:14px 18px;
+}
+.signup-form input::placeholder{color:rgba(243,241,238,.5)}
+.signup-form input[type="email"]:focus{border-color:var(--liquid-gold)}
+.form-note{margin-top:18px;font-size:.95rem;color:var(--first-frost);min-height:1.4em}
+/* Success state: the form fades out and the note takes center stage */
+.form-success .signup-form{display:none}
+.form-success .form-note{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1.2rem;
+  color:var(--liquid-gold);
+}
+.consent{margin-top:14px;font-size:.78rem;color:rgba(243,241,238,.55);max-width:46ch;margin-left:auto;margin-right:auto}
+@media (max-width:560px){
+  .newsletter-panel{padding:48px 22px}
+  .signup-form{flex-direction:column}
+}
+
+/* ---------- 10. CONTACT ---------- */
+.contact{padding:70px 0 120px}
+.contact-panel{max-width:680px;margin:0 auto}
+.contact-intro{margin-bottom:36px;max-width:56ch}
+.contact-form{display:grid;gap:18px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field label{
+  display:block;
+  font-family:var(--font-label);
+  letter-spacing:.2em;
+  font-size:.9rem;
+  color:var(--first-frost);
+  margin-bottom:6px;
+}
+.field input,.field textarea{
+  width:100%;
+  background:rgba(42,37,48,.6);
+  border:1px solid rgba(189,217,250,.3);
+  border-radius:4px;
+  color:var(--off-white);
+  font-family:var(--font-body);
+  font-size:1rem;
+  padding:13px 16px;
+}
+.field input:focus,.field textarea:focus{border-color:var(--liquid-gold)}
+.field textarea{min-height:150px;resize:vertical}
+.contact-note{margin-top:16px;font-size:.9rem;color:var(--first-frost);min-height:1.4em}
+.contact-media{
+  margin-top:40px;
+  padding-top:28px;
+  border-top:1px solid rgba(189,217,250,.15);
+  font-size:.95rem;
+  color:rgba(243,241,238,.75);
+}
+@media (max-width:560px){
+  .form-row{grid-template-columns:1fr}
+}
+
+/* ---------- 11. FOOTER ---------- */
+.footer{
+  border-top:1px solid rgba(189,217,250,.12);
+  padding:56px 0 44px;
+  text-align:center;
+}
+.footer-socials{display:flex;justify-content:center;gap:18px;margin-bottom:26px}
+.footer-cta{margin-bottom:22px}
+.footer-cta a{
+  font-family:var(--font-label);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-size:1rem;
+  text-decoration:none;
+  border-bottom:2px solid var(--liquid-gold);
+  padding-bottom:3px;
+}
+.footer small{color:rgba(243,241,238,.55);font-size:.85rem}
+
+/* ---------- 12. SCROLL-IN ANIMATION ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn,.social-link{transition:none}
+  .hero-book img{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================================================
+     STICKY NAV
+     ============================================================ -->
+<header>
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">REBECCA ZORG</a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#books">Books</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-socials">
+      <a class="social-link" href="https://www.instagram.com/rebeccazorg/" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 1.2.05 1.8.24 2.2.4.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.35 1.05.4 2.24.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.19-.24 1.82-.4 2.24-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.35-2.24.4-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.19-.05-1.82-.24-2.24-.4a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.35-1.05-.4-2.24C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.19.24-1.82.4-2.24.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.35 2.24-.4C8.42 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52 0-4.76.07-1.1.05-1.7.23-2.1.39-.53.2-.9.45-1.3.84-.39.4-.63.77-.84 1.3-.16.4-.34 1-.39 2.1C2.55 8.48 2.54 8.85 2.54 12s0 3.52.07 4.76c.05 1.1.23 1.7.39 2.1.2.53.45.9.84 1.3.4.39.77.63 1.3.84.4.16 1 .34 2.1.39 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.1-.05 1.7-.23 2.1-.39.53-.2.9-.45 1.3-.84.39-.4.63-.77.84-1.3.16-.4.34-1 .39-2.1.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.05-1.1-.23-1.7-.39-2.1a3.5 3.5 0 0 0-.84-1.3 3.5 3.5 0 0 0-1.3-.84c-.4-.16-1-.34-2.1-.39C15.52 4 15.15 4 12 4Zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-3.1a1.17 1.17 0 1 1 0 2.34 1.17 1.17 0 0 1 0-2.34Z"/></svg>
+      </a>
+      <a class="social-link" href="https://www.goodreads.com/author/show/48108402.Rebecca_Zorg/" target="_blank" rel="noopener" aria-label="Goodreads (opens in new tab)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16.6" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="currentColor">g</text></svg>
+      </a>
+      <a class="social-link" href="https://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1" target="_blank" rel="noopener" aria-label="Amazon author page (opens in new tab)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="15.5" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="currentColor">a</text><path d="M7 16.4c1.5 1.1 3.2 1.7 5 1.7s3.5-.6 5-1.7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </a>
+      <a class="social-link" href="https://www.bookbub.com/profile/rebecca-zorg" target="_blank" rel="noopener" aria-label="BookBub (opens in new tab)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="currentColor">bb</text></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main id="top">
+
+<!-- ============================================================
+     1. HERO — text left, floating 3D Penalty Box render right
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <!-- EDIT: hero eyebrow -->
+      <p class="eyebrow hero-eyebrow reveal">Slow Burn &middot; High Angst &middot; Enemies to Lovers</p>
+      <h1 class="reveal">HE DOESN&rsquo;T REMEMBER<br>RUINING HER LIFE.</h1>
+      <!-- EDIT: hero tagline -->
+      <p class="hero-tagline reveal">She&rsquo;s going to ensure he does.</p>
+      <a class="btn reveal" href="https://amzn.to/4i9Yvy2" target="_blank" rel="noopener">Preorder The Penalty Box</a>
+    </div>
+    <div class="hero-book reveal">
+      <!-- IMPORTANT: the file must be named exactly penalty-box-3d.png
+           and sit in the same folder as this index.html -->
+      <img src="penalty-box-3d.png"
+           alt="3D hardcover of The Penalty Box by Rebecca Zorg: a whisky glass resting on a hockey puck against dark smoke"
+           width="720" height="900">
+      <p class="hero-book-caption">THE PENALTY BOX &mdash; SEPTEMBER 15</p>
+    </div>
+  </div>
+  <a class="hero-scroll-hint" href="#books" aria-label="Scroll to books">EXPLORE &darr;</a>
+</section>
+
+<!-- ============================================================
+     2. BOOKS
+     ============================================================ -->
+<section class="books" id="books" aria-labelledby="books-heading">
+  <div class="wrap">
+    <div class="books-header reveal">
+      <p class="eyebrow">The Shelf</p>
+      <h2 class="section-title" id="books-heading">Books</h2>
+    </div>
+
+    <!-- ------- THE PENALTY BOX (feature zone) ------- -->
+    <div class="pb-zone reveal">
+      <article class="book-card">
+        <div class="book-cover-frame">
+          <img src="penalty-box-cover.jpg"
+               alt="Cover of The Penalty Box by Rebecca Zorg: a glass of whisky resting on a hockey puck against dark smoke"
+               loading="lazy" width="600" height="960">
+        </div>
+        <div>
+          <span class="badge badge-soon">September 15</span>
+          <p class="pb-series">THE FIRST LINE &middot; BOOK 1</p>
+          <h3 class="book-title pb-title">THE PENALTY BOX</h3>
+          <!-- EDIT: hook line -->
+          <p class="book-hook">He doesn&rsquo;t remember ruining her life. She&rsquo;s going to ensure he does.</p>
+          <ul class="pills" aria-label="Tropes and heat level">
+            <li class="pill">Enemies to Lovers</li>
+            <li class="pill">Slow Burn</li>
+            <li class="pill">Forced Proximity</li>
+            <li class="pill">Found Family</li>
+            <li class="pill">Grovel / Redemption</li>
+            <li class="pill pill-gold">Open Door</li>
+          </ul>
+          <!-- EDIT: teaser -->
+          <p class="book-teaser">A fiercely loyal pub owner. The newly traded NHL star who doesn't recognize the woman whose life he upended. A seven-year grudge, one very public collision, and a slow burn neither of them will admit to&nbsp;&mdash; until it finally, <em>finally</em> ignites.</p>
+          <a class="btn btn-outline" href="https://amzn.to/4i9Yvy2" target="_blank" rel="noopener">Preorder Now</a>
+
+          <div class="playlist-embed">
+            <p class="playlist-label">Ivy &amp; Gabriel&rsquo;s Playlist</p>
+            <iframe data-testid="embed-iframe"
+                    style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/5x75XTS2lQeqDajT3Nt85z?utm_source=generator&amp;theme=0&amp;si=0f2fc7f298bb4df2"
+                    width="100%"
+                    height="352"
+                    frameborder="0"
+                    allowfullscreen
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    title="Ivy and Gabriel's Spotify playlist"></iframe>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Faceoff-dot divider: the site's quiet hockey signature -->
+    <div class="faceoff-divider" aria-hidden="true"><span></span><i></i><span></span></div>
+
+    <!-- ------- BREAKAWAY BABY ------- -->
+    <article class="book-card reveal">
+      <div class="book-cover-frame">
+        <img src="breakaway-baby-cover.jpg"
+             alt="Cover of Breakaway Baby by Rebecca Zorg: an illustrated hockey player kissing a woman in front of a net at an ice rink"
+             loading="lazy" width="600" height="960">
+      </div>
+      <div>
+        <span class="badge badge-now">Available Now</span>
+        <p class="pb-series">STANDALONE &middot; VANCOUVER HOCKEY ROMANCE</p>
+        <h3 class="book-title">Breakaway Baby</h3>
+        <ul class="pills" aria-label="Tropes">
+          <li class="pill">One Reckless Night</li>
+          <li class="pill">Accidental Pregnancy</li>
+          <li class="pill">Hockey Captain</li>
+          <li class="pill">A Twist of Suspense</li>
+        </ul>
+        <!-- EDIT: blurb -->
+        <p class="book-teaser">Leila Shah had her life all planned&mdash;until one reckless night changed everything. Notorious bachelor and captain of the Vancouver Vanguards, Ragnar Colton, has one rule: never mix ice and spice. That changes the night he's set to face off against his backstabbing ex-teammate and spots Leila Shah wearing his jersey, unable to take his eyes off her. Spurred by a dare, Leila finds herself in Ragnar's arms after their intimate date&mdash;then flees, humiliated, vowing to put the night behind her. Six weeks later, a positive pregnancy test disrupts her plans to forget him. And as cryptic warnings suggest Ragnar may not be the man he seems, Leila must navigate a maze of deceit where every choice carries a consequence.</p>
+        <a class="btn" href="https://mybook.to/breakawaybaby" target="_blank" rel="noopener">Buy Now</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. ABOUT
+     ============================================================ -->
+<section class="about" id="about" aria-labelledby="about-heading">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="author-photo.jpg"
+             alt="Author Rebecca Zorg smiling in a black blazer against a white backdrop"
+             loading="lazy" width="600" height="900">
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">The Author</p>
+        <h2 class="section-title" id="about-heading">About Rebecca</h2>
+        <!-- EDIT: website bio (long version) -->
+        <div class="about-bio">
+          <p><strong>Welcome!</strong></p>
+          <p>Rebecca writes slow-burn, high-angst hockey romance&nbsp;&mdash; grudges, grovels, and love stories that make you want to throw the book across the room (in a good way). She believes in second chances that are earned, heroes who bleed for it, and heroines who don&rsquo;t fold. She lives in Vancouver, BC, with her husband and their chorkie, Freya.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. NEWSLETTER — key conversion section
+     Wired to Rebecca's MailerLite form. Submits in the background
+     and shows an on-brand success message without leaving the page.
+     ============================================================ -->
+<section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
+  <div class="wrap">
+    <div class="newsletter-panel reveal" id="newsletterPanel">
+      <p class="eyebrow">Reader List</p>
+      <h2 id="newsletter-heading">Be first in line.</h2>
+      <!-- EDIT: newsletter pitch -->
+      <p class="newsletter-sub">Bonus scenes and chapters&nbsp;&mdash; including Chapter One from Gabriel&rsquo;s POV&nbsp;&mdash; plus occasional behind-the-scenes photos, early book news, and other reader extras. No filler, no spam&nbsp;&mdash; just the good stuff, when there&rsquo;s good stuff.</p>
+
+      <form class="signup-form"
+            action="https://assets.mailerlite.com/jsonp/2494668/forms/192364802622883054/subscribe"
+            method="post"
+            id="newsletterForm"
+            novalidate>
+        <label for="email" class="visually-hidden">Email address</label>
+        <input type="email" id="email" name="fields[email]" placeholder="Your email address" autocomplete="email" required>
+        <button type="submit" class="btn" id="newsletterBtn">Join the Home Team</button>
+      </form>
+      <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      <p class="consent">By signing up you agree to receive Rebecca Zorg's newsletter. Unsubscribe anytime, no hard feelings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. CONTACT — wired to Web3Forms; messages arrive at
+     rebecca@rebeccazorg.com
+     ============================================================ -->
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap">
+    <div class="contact-panel">
+      <p class="eyebrow reveal">Say Hello</p>
+      <h2 class="section-title reveal" id="contact-heading">Contact</h2>
+      <!-- EDIT: contact intro -->
+      <p class="contact-intro reveal">Reader mail is the best mail. Whether you have a question, a theory about one of my books, or just want to say hi&nbsp;&mdash; use the form below and I&rsquo;ll reply as soon as I can.</p>
+
+      <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST" id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="eb4322df-bf34-4305-849b-4801ca284f08">
+        <input type="hidden" name="from_name" value="rebeccazorg.com contact form">
+        <!-- honeypot spam trap (hidden from humans) -->
+        <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+        <div class="form-row">
+          <div class="field">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="First Name" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="Last Name" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="field">
+          <label for="contactEmail">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="subject">Subject <span aria-hidden="true">*</span></label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="field">
+          <label for="message">Message <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn">Send Message</button>
+        </div>
+      </form>
+      <p class="contact-note" id="contactNote" role="status" aria-live="polite"></p>
+
+      <p class="contact-media reveal">Media, rights, and publicity inquiries: <a href="mailto:publicity@rebeccazorg.com">publicity@rebeccazorg.com</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     6. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-socials">
+      <a class="social-link" href="https://www.instagram.com/rebeccazorg/" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 1.2.05 1.8.24 2.2.4.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.35 1.05.4 2.24.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.19-.24 1.82-.4 2.24-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.35-2.24.4-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.19-.05-1.82-.24-2.24-.4a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.35-1.05-.4-2.24C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.19.24-1.82.4-2.24.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.35 2.24-.4C8.42 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52 0-4.76.07-1.1.05-1.7.23-2.1.39-.53.2-.9.45-1.3.84-.39.4-.63.77-.84 1.3-.16.4-.34 1-.39 2.1C2.55 8.48 2.54 8.85 2.54 12s0 3.52.07 4.76c.05 1.1.23 1.7.39 2.1.2.53.45.9.84 1.3.4.39.77.63 1.3.84.4.16 1 .34 2.1.39 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.1-.05 1.7-.23 2.1-.39.53-.2.9-.45 1.3-.84.39-.4.63-.77.84-1.3.16-.4.34-1 .39-2.1.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.05-1.1-.23-1.7-.39-2.1a3.5 3.5 0 0 0-.84-1.3 3.5 3.5 0 0 0-1.3-.84c-.4-.16-1-.34-2.1-.39C15.52 4 15.15 4 12 4Zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-3.1a1.17 1.17 0 1 1 0 2.34 1.17 1.17 0 0 1 0-2.34Z"/></svg>
+      </a>
+      <a class="social-link" href="https://www.goodreads.com/author/show/48108402.Rebecca_Zorg/" target="_blank" rel="noopener" aria-label="Goodreads (opens in new tab)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16.6" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="currentColor">g</text></svg>
+      </a>
+      <a class="social-link" href="https://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1" target="_blank" rel="noopener" aria-label="Amazon author page (opens in new tab)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="15.5" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="currentColor">a</text><path d="M7 16.4c1.5 1.1 3.2 1.7 5 1.7s3.5-.6 5-1.7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </a>
+      <a class="social-link" href="https://www.bookbub.com/profile/rebecca-zorg" target="_blank" rel="noopener" aria-label="BookBub (opens in new tab)">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="currentColor">bb</text></svg>
+      </a>
+    </div>
+    <p class="footer-cta"><a href="#newsletter">Join the Home Team</a></p>
+    <small>&copy; 2026 Rebecca Zorg. All rights reserved.</small>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   Small, dependency-free JavaScript
+   ================================================================ */
+
+/* 1. Mobile menu toggle */
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var links = document.getElementById('navLinks');
+  btn.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+
+/* 2. Scroll-in reveal */
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12});
+  items.forEach(function(el){ io.observe(el); });
+})();
+
+/* 3. Newsletter form — submits to MailerLite in the background so the
+      reader never leaves the page, then swaps the form for an on-brand
+      thank-you. If anything goes wrong with the background submission,
+      it falls back to MailerLite's own success page (a normal submit),
+      so no signup is ever lost. */
+(function(){
+  var form = document.getElementById('newsletterForm');
+  var panel = document.getElementById('newsletterPanel');
+  var note = document.getElementById('formNote');
+  var btn = document.getElementById('newsletterBtn');
+
+  form.addEventListener('submit', function(e){
+    var email = document.getElementById('email');
+    if(!email.value || email.validity.typeMismatch || email.validity.valueMissing){
+      e.preventDefault();
+      note.textContent = 'Enter a valid email address to sign up.';
+      email.focus();
+      return;
+    }
+    e.preventDefault();
+    btn.disabled = true;
+    note.textContent = 'Signing you up\u2026';
+
+    var data = new FormData(form);
+    data.append('ml-submit','1');
+    data.append('anticsrf','true');
+
+    fetch(form.action, { method:'POST', body:data })
+      .then(function(res){ return res.json(); })
+      .then(function(json){
+        if(json && json.success === false){ throw new Error('rejected'); }
+        /* EDIT: newsletter success message */
+        panel.classList.add('form-success');
+        note.innerHTML = 'You&rsquo;re in. Welcome to the Home Team. &#127954; Watch your inbox for bonus scenes, chapters, behind-the-scenes extras, and book news.';
+      })
+      .catch(function(){
+        /* Fallback: submit normally so the signup still goes through
+           via MailerLite's own confirmation page */
+        form.submit();
+      });
+  });
+})();
+
+/* 4. Contact form — submits to Web3Forms in the background and shows
+      a thank-you without leaving the page. Messages arrive at
+      rebecca@rebeccazorg.com. */
+(function(){
+  var form = document.getElementById('contactForm');
+  var note = document.getElementById('contactNote');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('contactEmail');
+    var subject = document.getElementById('subject');
+    var message = document.getElementById('message');
+    if(!email.value || email.validity.typeMismatch){
+      note.textContent = 'Enter a valid email address so Rebecca can reply.';
+      email.focus();
+      return;
+    }
+    if(!subject.value || !message.value){
+      note.textContent = 'A subject and message are required.';
+      (!subject.value ? subject : message).focus();
+      return;
+    }
+    note.textContent = 'Sending\u2026';
+    fetch(form.action, {
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
+    }).then(function(res){
+      if(res.ok){
+        form.reset();
+        note.textContent = 'Message sent \u2014 thank you! Rebecca will reply as soon as she can.';
+      }else{
+        note.innerHTML = 'Something went wrong sending your message. Please email <a href="mailto:rebecca@rebeccazorg.com">rebecca@rebeccazorg.com</a> instead.';
+      }
+    }).catch(function(){
+      note.innerHTML = 'Something went wrong sending your message. Please email <a href="mailto:rebecca@rebeccazorg.com">rebecca@rebeccazorg.com</a> instead.';
+    });
+  });
+})();
+</script>
+</body>
+</html>

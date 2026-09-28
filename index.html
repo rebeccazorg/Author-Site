@@ -4,44 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rebecca Zorg — Canadian Hockey Romance Author</title>
-<meta name="description" content="Rebecca Zorg writes slow-burn, high-angst hockey romance full of grudges, grovels, and hard-earned second chances. Preorder The Penalty Box, out September 15.">
+<meta name="description" content="Rebecca Zorg writes slow-burn, high-angst hockey romance full of grudges, grovels, and hard-earned second chances. Read The Penalty Box, out now.">
 
 <!-- Social share cards (Open Graph + Twitter).
      REBECCA: create a 1200x630 image named og-image.jpg (your 3D
      Penalty Box render on a Sin Bin Black background works perfectly)
      and keep it in the same folder as this file. -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://rebeccazorg.com/">
+<meta property="og:url" content="http://rebeccazorg.com/">
 <meta property="og:title" content="Rebecca Zorg — Slow-Burn, High-Angst Hockey Romance">
-<meta property="og:description" content="Grudges, grovels, and hockey romance. Preorder The Penalty Box — September 15.">
-<meta property="og:image" content="https://rebeccazorg.com/og-image.jpg">
+<meta property="og:description" content="Grudges, grovels, and hockey romance. Grab your copy of The Penalty Box — Out Now!">
+<meta property="og:image" content="http://rebeccazorg.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- Tells Google the http:// address is the one true version of this page -->
+<link rel="canonical" href="http://rebeccazorg.com/">
+
+<!-- HTTPS safety net. The REAL redirect belongs on your host (see the
+     .htaccess file / host setting). This line only catches anyone who
+     still lands on http:// and bounces them to http:// instantly. -->
+<script>
+if(location.protocol==='http:' && location.hostname!=='localhost'){
+  location.replace('http://'+location.host+location.pathname+location.search+location.hash);
+}
+</script>
+
 <!-- ============================================================
-     FAVICON — inline SVG "RZ" monogram (Liquid Gold on Sin Bin Black)
+     FAVICON — RZ monogram (Liquid Gold on Sin Bin Black)
+     Files: favicon.ico, favicon-32.png, apple-touch-icon.png
      ============================================================ -->
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="%23161317"/><text x="32" y="44" font-family="Georgia,serif" font-size="30" font-weight="bold" fill="%23EDA85B" text-anchor="middle" letter-spacing="-2">RZ</text></svg>'>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <!-- ============================================================
      GOOGLE FONTS (the only external dependency)
      ============================================================ -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="http://fonts.googleapis.com">
+<link rel="preconnect" href="http://fonts.gstatic.com" crossorigin>
+<link href="http://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
 <!-- SEO: structured data so Google understands you're an author with books -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
+  "@context":"http://schema.org",
   "@type":"Person",
   "name":"Rebecca Zorg",
-  "url":"https://rebeccazorg.com",
+  "url":"http://rebeccazorg.com",
   "jobTitle":"Author",
   "sameAs":[
-    "https://www.instagram.com/rebeccazorg/",
-    "https://www.goodreads.com/author/show/48108402.Rebecca_Zorg/",
-    "https://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1",
-    "https://www.bookbub.com/profile/rebecca-zorg"
+    "http://www.instagram.com/rebeccazorg/",
+    "http://www.goodreads.com/author/show/48108402.Rebecca_Zorg/",
+    "http://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1",
+    "http://www.bookbub.com/profile/rebecca-zorg"
   ]
 }
 </script>
@@ -56,8 +71,11 @@
        penalty-box-cover.jpg
        breakaway-baby-cover.jpg
        penalty-box-3d.png
+       logo-rebecca-zorg.png   (header logo)
+       favicon.ico, favicon-32.png, apple-touch-icon.png
        og-image.jpg (optional, for social share cards)
-   • Both forms are wired: MailerLite (newsletter) + Web3Forms (contact).
+   • Both forms are wired: MailerLite (newsletter popup) + Web3Forms (contact).
+   • Newsletter landing page link: search for books.rebeccazorg.com
    ================================================================ */
 
 /* ---------- 1. BRAND TOKENS ---------- */
@@ -156,15 +174,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   gap:24px;
 }
 .wordmark{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:1.15rem;
-  letter-spacing:.14em;
-  color:var(--off-white);
+  display:flex;
+  align-items:center;
+  height:100%;
   text-decoration:none;
-  white-space:nowrap;
+  flex-shrink:0;
 }
-.wordmark:hover{color:var(--liquid-gold)}
+.wordmark img{
+  height:52px;
+  width:auto;
+  transition:opacity .2s;
+}
+.wordmark:hover img{opacity:.8}
 .nav-links{display:flex;gap:28px;list-style:none;margin-left:auto}
 .nav-links a{
   font-family:var(--font-label);
@@ -362,8 +383,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   border-radius:3px;
   margin-bottom:18px;
 }
-.badge-soon{background:var(--rust);color:var(--off-white)}
-.badge-now{background:transparent;color:var(--liquid-gold);border:1px solid var(--liquid-gold)}
+/* Both "Available Now" badges share one solid style.
+   To switch both to gold, change background to var(--liquid-gold)
+   and color to var(--sin-bin-black). */
+.badge-now{background:var(--rust);color:var(--off-white)}
 .book-title{
   font-family:var(--font-display);
   font-weight:700;
@@ -388,6 +411,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   margin-bottom:20px;
 }
 .book-teaser{max-width:56ch;margin-bottom:26px;color:var(--off-white)}
+.book-teaser p + p{margin-top:.9em}
+.book-ku{
+  margin-top:12px;
+  font-size:.85rem;
+  color:rgba(189,217,250,.75);
+}
 
 /* Faceoff divider — a quiet hockey signature between the books:
    two thin "rink lines" meeting at a faceoff circle. */
@@ -418,8 +447,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   background:rgba(189,217,250,.5);
 }
 
-/* --- The Penalty Box feature zone --- */
-.pb-zone{
+/* --- Book feature panel (used by EVERY book so they match) --- */
+.book-zone{
   background:
     linear-gradient(135deg,rgba(62,74,99,.5) 0%,rgba(84,65,95,.55) 45%,rgba(42,37,48,.7) 100%),
     var(--concrete);
@@ -429,7 +458,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   position:relative;
   overflow:hidden;
 }
-.pb-zone::before{
+.book-zone::before{
   content:"";
   position:absolute;
   top:-120px;right:-120px;
@@ -437,7 +466,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   background:radial-gradient(circle,rgba(189,217,250,.16) 0%,transparent 70%);
   pointer-events:none;
 }
-.pb-zone .book-card{margin-bottom:0}
+.book-zone .book-card{margin-bottom:0;position:relative}
 .pb-title{
   font-family:var(--font-label);
   font-weight:400;
@@ -459,28 +488,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   margin-bottom:16px;
 }
 @media (max-width:760px){
-  .book-card{grid-template-columns:1fr;gap:36px}
-  .book-cover-frame{max-width:280px;margin:0 auto}
-  .pb-zone{padding:40px 24px}
-}
-
-/* ---------- 7B. SPOTIFY PLAYLIST ---------- */
-.playlist-embed{
-  margin-top:28px;
-  max-width:560px;
-}
-.playlist-label{
-  font-family:var(--font-label);
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  font-size:.95rem;
-  color:var(--first-frost);
-  margin-bottom:10px;
-}
-.playlist-embed iframe{
-  display:block;
-  width:100%;
-  border:0;
+  .book-card{grid-template-columns:1fr;gap:28px}
+  .book-cover-frame{max-width:240px;margin:0 auto}
+  .book-zone{padding:32px 20px}
+  .faceoff-divider{padding:32px 0}
 }
 
 /* ---------- 8. ABOUT ---------- */
@@ -508,35 +519,63 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   .about-photo{max-width:300px;margin:0 auto}
 }
 
-/* ---------- 9. NEWSLETTER ---------- */
-.newsletter{padding:120px 0 70px}
+/* ---------- 9. NEWSLETTER POPUP ---------- */
+.nl-modal{
+  position:fixed;
+  inset:0;
+  z-index:1500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  background:rgba(10,8,11,.78);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s ease,visibility .3s ease;
+}
+.nl-modal.open{opacity:1;visibility:visible}
 .newsletter-panel{
-  background:linear-gradient(140deg,rgba(84,65,95,.48),rgba(42,37,48,.9) 45%,rgba(22,19,23,.9));
+  width:100%;
+  max-width:560px;
+  max-height:calc(100svh - 32px);
+  overflow-y:auto;
+  background:linear-gradient(140deg,#3a2e42,#2A2530 45%,#161317);
   border:1px solid rgba(237,168,91,.35);
   border-radius:14px;
-  padding:72px 56px;
+  padding:56px 44px 40px;
   text-align:center;
   position:relative;
-  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  transform:translateY(16px);
+  transition:transform .3s ease;
 }
-.newsletter-panel::before{
-  content:"";
+.nl-modal.open .newsletter-panel{transform:none}
+.nl-close{
   position:absolute;
-  bottom:-140px;left:50%;
-  transform:translateX(-50%);
-  width:520px;height:280px;
-  background:radial-gradient(ellipse,rgba(237,168,91,.14) 0%,transparent 70%);
-  pointer-events:none;
+  top:12px;right:12px;
+  width:40px;height:40px;
+  background:none;
+  border:none;
+  border-radius:50%;
+  color:var(--first-frost);
+  font-size:1.8rem;
+  line-height:1;
+  cursor:pointer;
 }
-.newsletter h2{
+.nl-close:hover{color:var(--liquid-gold)}
+.newsletter-panel h2{
   font-family:var(--font-display);
   font-weight:700;
-  font-size:clamp(2rem,4.5vw,3rem);
+  font-size:clamp(1.8rem,5vw,2.5rem);
   color:var(--first-frost);
+  line-height:1.15;
   margin:.3em 0 .5em;
 }
-.newsletter-sub{max-width:56ch;margin:0 auto 36px;color:var(--off-white)}
-.signup-form{display:flex;gap:14px;max-width:520px;margin:0 auto}
+.newsletter-sub{max-width:46ch;margin:0 auto 28px;color:var(--off-white)}
+.signup-form{display:flex;flex-direction:column;gap:12px;max-width:400px;margin:0 auto}
+.signup-form .btn{width:100%;letter-spacing:.12em;padding:14px 16px}
 .signup-form input[type="email"]{
   flex:1;
   min-width:0;
@@ -550,8 +589,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 }
 .signup-form input::placeholder{color:rgba(243,241,238,.5)}
 .signup-form input[type="email"]:focus{border-color:var(--liquid-gold)}
-.form-note{margin-top:18px;font-size:.95rem;color:var(--first-frost);min-height:1.4em}
-/* Success state: the form fades out and the note takes center stage */
+.form-note{margin-top:16px;font-size:.95rem;color:var(--first-frost);min-height:1.4em}
+/* Success state: the form disappears and the note takes center stage */
 .form-success .signup-form{display:none}
 .form-success .form-note{
   font-family:var(--font-display);
@@ -559,11 +598,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   font-size:1.2rem;
   color:var(--liquid-gold);
 }
-.consent{margin-top:14px;font-size:.78rem;color:rgba(243,241,238,.55);max-width:46ch;margin-left:auto;margin-right:auto}
+.consent{margin-top:10px;font-size:.78rem;color:rgba(243,241,238,.55);max-width:46ch;margin-left:auto;margin-right:auto}
 @media (max-width:560px){
-  .newsletter-panel{padding:48px 22px}
+  .newsletter-panel{padding:48px 22px 28px}
   .signup-form{flex-direction:column}
 }
+body.modal-open{overflow:hidden}
 
 /* ---------- 10. CONTACT ---------- */
 .contact{padding:70px 0 120px}
@@ -601,6 +641,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 }
 @media (max-width:560px){
   .form-row{grid-template-columns:1fr}
+}
+
+/* ---------- 10B. MOBILE SPACING — tighter gaps between sections ---------- */
+@media (max-width:760px){
+  .hero{padding:calc(var(--nav-height) + 28px) 0 64px;min-height:auto}
+  .books{padding:56px 0 24px}
+  .books-header{margin-bottom:28px}
+  .about{padding:56px 0}
+  .about-grid{gap:32px}
+  .contact{padding:48px 0 64px}
+  .contact-intro{margin-bottom:24px}
+  .footer{padding:40px 0 32px}
+  .wordmark img{height:44px}
 }
 
 /* ---------- 11. FOOTER ---------- */
@@ -647,7 +700,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <header>
 <nav class="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a class="wordmark" href="#top">REBECCA ZORG</a>
+    <a class="wordmark" href="#top" aria-label="Rebecca Zorg, back to top">
+      <img src="logo-rebecca-zorg.png" alt="Rebecca Zorg, Author" width="346" height="158">
+    </a>
 
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -656,21 +711,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <ul class="nav-links" id="navLinks">
       <li><a href="#books">Books</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#newsletter">Newsletter</a></li>
       <li><a href="#contact">Contact</a></li>
+      <!-- EDIT: newsletter landing page address -->
+      <li><a href="http://books.rebeccazorg.com/newsletter">Newsletter</a></li>
     </ul>
 
     <div class="nav-socials">
-      <a class="social-link" href="https://www.instagram.com/rebeccazorg/" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
+      <a class="social-link" href="http://www.instagram.com/rebeccazorg/" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
         <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 1.2.05 1.8.24 2.2.4.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.35 1.05.4 2.24.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.19-.24 1.82-.4 2.24-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.35-2.24.4-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.19-.05-1.82-.24-2.24-.4a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.35-1.05-.4-2.24C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.19.24-1.82.4-2.24.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.35 2.24-.4C8.42 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52 0-4.76.07-1.1.05-1.7.23-2.1.39-.53.2-.9.45-1.3.84-.39.4-.63.77-.84 1.3-.16.4-.34 1-.39 2.1C2.55 8.48 2.54 8.85 2.54 12s0 3.52.07 4.76c.05 1.1.23 1.7.39 2.1.2.53.45.9.84 1.3.4.39.77.63 1.3.84.4.16 1 .34 2.1.39 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.1-.05 1.7-.23 2.1-.39.53-.2.9-.45 1.3-.84.39-.4.63-.77.84-1.3.16-.4.34-1 .39-2.1.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.05-1.1-.23-1.7-.39-2.1a3.5 3.5 0 0 0-.84-1.3 3.5 3.5 0 0 0-1.3-.84c-.4-.16-1-.34-2.1-.39C15.52 4 15.15 4 12 4Zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-3.1a1.17 1.17 0 1 1 0 2.34 1.17 1.17 0 0 1 0-2.34Z"/></svg>
       </a>
-      <a class="social-link" href="https://www.goodreads.com/author/show/48108402.Rebecca_Zorg/" target="_blank" rel="noopener" aria-label="Goodreads (opens in new tab)">
+      <a class="social-link" href="http://www.goodreads.com/author/show/48108402.Rebecca_Zorg/" target="_blank" rel="noopener" aria-label="Goodreads (opens in new tab)">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16.6" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="currentColor">g</text></svg>
       </a>
-      <a class="social-link" href="https://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1" target="_blank" rel="noopener" aria-label="Amazon author page (opens in new tab)">
+      <a class="social-link" href="http://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1" target="_blank" rel="noopener" aria-label="Amazon author page (opens in new tab)">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="15.5" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="currentColor">a</text><path d="M7 16.4c1.5 1.1 3.2 1.7 5 1.7s3.5-.6 5-1.7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
       </a>
-      <a class="social-link" href="https://www.bookbub.com/profile/rebecca-zorg" target="_blank" rel="noopener" aria-label="BookBub (opens in new tab)">
+      <a class="social-link" href="http://www.bookbub.com/profile/rebecca-zorg" target="_blank" rel="noopener" aria-label="BookBub (opens in new tab)">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="currentColor">bb</text></svg>
       </a>
     </div>
@@ -690,16 +746,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <p class="eyebrow hero-eyebrow reveal">Slow Burn &middot; High Angst &middot; Enemies to Lovers</p>
       <h1 class="reveal">HE DOESN&rsquo;T REMEMBER<br>RUINING HER LIFE.</h1>
       <!-- EDIT: hero tagline -->
-      <p class="hero-tagline reveal">She&rsquo;s going to ensure he does.</p>
-      <a class="btn reveal" href="https://amzn.to/4i9Yvy2" target="_blank" rel="noopener">Preorder The Penalty Box</a>
+      <p class="hero-tagline reveal">She&rsquo;s going to make sure he does.</p>
+      <a class="btn reveal" href="http://amzn.to/4i9Yvy2" target="_blank" rel="noopener">Read Now</a>
     </div>
     <div class="hero-book reveal">
       <!-- IMPORTANT: the file must be named exactly penalty-box-3d.png
            and sit in the same folder as this index.html -->
       <img src="penalty-box-3d.png"
-           alt="3D hardcover of The Penalty Box by Rebecca Zorg: a whisky glass resting on a hockey puck against dark smoke"
+           alt="The Penalty Box by Rebecca Zorg, book one of The First Line"
            width="720" height="900">
-      <p class="hero-book-caption">THE PENALTY BOX &mdash; SEPTEMBER 15</p>
+      <p class="hero-book-caption">THE PENALTY BOX &mdash; OUT NOW</p>
     </div>
   </div>
   <a class="hero-scroll-hint" href="#books" aria-label="Scroll to books">EXPLORE &darr;</a>
@@ -715,20 +771,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <h2 class="section-title" id="books-heading">Books</h2>
     </div>
 
-    <!-- ------- THE PENALTY BOX (feature zone) ------- -->
-    <div class="pb-zone reveal">
+    <!-- ------- THE PENALTY BOX ------- -->
+    <div class="book-zone reveal">
       <article class="book-card">
         <div class="book-cover-frame">
           <img src="penalty-box-cover.jpg"
-               alt="Cover of The Penalty Box by Rebecca Zorg: a glass of whisky resting on a hockey puck against dark smoke"
+               alt="Cover of The Penalty Box by Rebecca Zorg: a hockey player in a number 3 jersey faces a red-haired bartender across a bar"
                loading="lazy" width="600" height="960">
         </div>
         <div>
-          <span class="badge badge-soon">September 15</span>
+          <span class="badge badge-now">Available Now</span>
           <p class="pb-series">THE FIRST LINE &middot; BOOK 1</p>
           <h3 class="book-title pb-title">THE PENALTY BOX</h3>
           <!-- EDIT: hook line -->
-          <p class="book-hook">He doesn&rsquo;t remember ruining her life. She&rsquo;s going to ensure he does.</p>
+          <p class="book-hook">He doesn&rsquo;t remember ruining her life. She&rsquo;s going to make sure he does.</p>
           <ul class="pills" aria-label="Tropes and heat level">
             <li class="pill">Enemies to Lovers</li>
             <li class="pill">Slow Burn</li>
@@ -738,22 +794,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
             <li class="pill pill-gold">Open Door</li>
           </ul>
           <!-- EDIT: teaser -->
-          <p class="book-teaser">A fiercely loyal pub owner. The newly traded NHL star who doesn't recognize the woman whose life he upended. A seven-year grudge, one very public collision, and a slow burn neither of them will admit to&nbsp;&mdash; until it finally, <em>finally</em> ignites.</p>
-          <a class="btn btn-outline" href="https://amzn.to/4i9Yvy2" target="_blank" rel="noopener">Preorder Now</a>
-
-          <div class="playlist-embed">
-            <p class="playlist-label">Ivy &amp; Gabriel&rsquo;s Playlist</p>
-            <iframe data-testid="embed-iframe"
-                    style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/5x75XTS2lQeqDajT3Nt85z?utm_source=generator&amp;theme=0&amp;si=0f2fc7f298bb4df2"
-                    width="100%"
-                    height="352"
-                    frameborder="0"
-                    allowfullscreen
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    title="Ivy and Gabriel's Spotify playlist"></iframe>
+          <div class="book-teaser">
+            <p>A fiercely loyal pub owner. The newly traded NHL star who doesn't recognize the woman whose life he upended. A seven-year grudge, one very public collision, and a slow burn neither of them will admit to&nbsp;&mdash; until it finally, <em>finally</em> ignites.</p>
           </div>
+          <a class="btn" href="http://amzn.to/4i9Yvy2" target="_blank" rel="noopener">Read Now</a>
+          <p class="book-ku">Free to read in Kindle Unlimited</p>
         </div>
       </article>
     </div>
@@ -762,27 +807,34 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <div class="faceoff-divider" aria-hidden="true"><span></span><i></i><span></span></div>
 
     <!-- ------- BREAKAWAY BABY ------- -->
-    <article class="book-card reveal">
-      <div class="book-cover-frame">
-        <img src="breakaway-baby-cover.jpg"
-             alt="Cover of Breakaway Baby by Rebecca Zorg: an illustrated hockey player kissing a woman in front of a net at an ice rink"
-             loading="lazy" width="600" height="960">
-      </div>
-      <div>
-        <span class="badge badge-now">Available Now</span>
-        <p class="pb-series">STANDALONE &middot; VANCOUVER HOCKEY ROMANCE</p>
-        <h3 class="book-title">Breakaway Baby</h3>
-        <ul class="pills" aria-label="Tropes">
-          <li class="pill">One Reckless Night</li>
-          <li class="pill">Accidental Pregnancy</li>
-          <li class="pill">Hockey Captain</li>
-          <li class="pill">A Twist of Suspense</li>
-        </ul>
-        <!-- EDIT: blurb -->
-        <p class="book-teaser">Leila Shah had her life all planned&mdash;until one reckless night changed everything. Notorious bachelor and captain of the Vancouver Vanguards, Ragnar Colton, has one rule: never mix ice and spice. That changes the night he's set to face off against his backstabbing ex-teammate and spots Leila Shah wearing his jersey, unable to take his eyes off her. Spurred by a dare, Leila finds herself in Ragnar's arms after their intimate date&mdash;then flees, humiliated, vowing to put the night behind her. Six weeks later, a positive pregnancy test disrupts her plans to forget him. And as cryptic warnings suggest Ragnar may not be the man he seems, Leila must navigate a maze of deceit where every choice carries a consequence.</p>
-        <a class="btn" href="https://mybook.to/breakawaybaby" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-    </article>
+    <div class="book-zone reveal">
+      <article class="book-card">
+        <div class="book-cover-frame">
+          <img src="breakaway-baby-cover.jpg"
+               alt="Cover of Breakaway Baby by Rebecca Zorg: an illustrated hockey player kissing a woman in front of a net at an ice rink"
+               loading="lazy" width="600" height="960">
+        </div>
+        <div>
+          <span class="badge badge-now">Available Now</span>
+          <p class="pb-series">STANDALONE &middot; VANCOUVER HOCKEY ROMANCE</p>
+          <h3 class="book-title pb-title">BREAKAWAY BABY</h3>
+          <ul class="pills" aria-label="Tropes">
+            <li class="pill">One Reckless Night</li>
+            <li class="pill">Accidental Pregnancy</li>
+            <li class="pill">Hockey Captain</li>
+            <li class="pill">A Twist of Suspense</li>
+          </ul>
+          <!-- EDIT: blurb -->
+          <div class="book-teaser">
+            <p>Leila Shah had her life all planned&mdash;until one reckless night changed everything.</p>
+            <p>Notorious bachelor and captain of the Vancouver Vanguards, Ragnar Colton, has one rule: never mix ice and spice. That changes the night he's set to face off against his backstabbing ex-teammate and spots Leila Shah wearing his jersey, unable to take his eyes off her.</p>
+            <p>Spurred by a dare, Leila finds herself in Ragnar's arms after their intimate date&mdash;then flees, humiliated, vowing to put the night behind her. Six weeks later, a positive pregnancy test disrupts her plans to forget him. And as cryptic warnings suggest Ragnar may not be the man he seems, Leila must navigate a maze of deceit where every choice carries a consequence.</p>
+          </div>
+          <a class="btn" href="http://mybook.to/breakawaybaby" target="_blank" rel="noopener">Read Now</a>
+          <p class="book-ku">Free to read in Kindle Unlimited</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -799,11 +851,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       </div>
       <div class="reveal">
         <p class="eyebrow">The Author</p>
-        <h2 class="section-title" id="about-heading">About Rebecca</h2>
+        <h2 class="section-title" id="about-heading">Meet Rebecca</h2>
         <!-- EDIT: website bio (long version) -->
         <div class="about-bio">
-          <p><strong>Welcome!</strong></p>
-          <p>Rebecca writes slow-burn, high-angst hockey romance&nbsp;&mdash; grudges, grovels, and love stories that make you want to throw the book across the room (in a good way). She believes in second chances that are earned, heroes who bleed for it, and heroines who don&rsquo;t fold. She lives in Vancouver, BC, with her husband and their chorkie, Freya.</p>
+          <p>Welcome, I&rsquo;m so glad you&rsquo;re here! I&rsquo;m Rebecca, and I love telling stories that get under your skin, then hook. I&rsquo;m currently in my hockey era, so my books feature the sport and team in one way or another. But my curious mind means I like to do deep dives into corners that aren&rsquo;t yet explored and other &ldquo;what if?&rdquo; scenarios. In a story, I think anything is possible, and I love that my job is turning that fantasy into a (fictional) reality.</p>
         </div>
       </div>
     </div>
@@ -811,35 +862,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </section>
 
 <!-- ============================================================
-     4. NEWSLETTER — key conversion section
-     Wired to Rebecca's MailerLite form. Submits in the background
-     and shows an on-brand success message without leaving the page.
-     ============================================================ -->
-<section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
-  <div class="wrap">
-    <div class="newsletter-panel reveal" id="newsletterPanel">
-      <p class="eyebrow">Reader List</p>
-      <h2 id="newsletter-heading">Be first in line.</h2>
-      <!-- EDIT: newsletter pitch -->
-      <p class="newsletter-sub">Bonus scenes and chapters&nbsp;&mdash; including Chapter One from Gabriel&rsquo;s POV&nbsp;&mdash; plus occasional behind-the-scenes photos, early book news, and other reader extras. No filler, no spam&nbsp;&mdash; just the good stuff, when there&rsquo;s good stuff.</p>
-
-      <form class="signup-form"
-            action="https://assets.mailerlite.com/jsonp/2494668/forms/192364802622883054/subscribe"
-            method="post"
-            id="newsletterForm"
-            novalidate>
-        <label for="email" class="visually-hidden">Email address</label>
-        <input type="email" id="email" name="fields[email]" placeholder="Your email address" autocomplete="email" required>
-        <button type="submit" class="btn" id="newsletterBtn">Join the Home Team</button>
-      </form>
-      <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-      <p class="consent">By signing up you agree to receive Rebecca Zorg's newsletter. Unsubscribe anytime, no hard feelings.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     5. CONTACT — wired to Web3Forms; messages arrive at
+     4. CONTACT — wired to Web3Forms; messages arrive at
      rebecca@rebeccazorg.com
      ============================================================ -->
 <section class="contact" id="contact" aria-labelledby="contact-heading">
@@ -848,9 +871,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <p class="eyebrow reveal">Say Hello</p>
       <h2 class="section-title reveal" id="contact-heading">Contact</h2>
       <!-- EDIT: contact intro -->
-      <p class="contact-intro reveal">Reader mail is the best mail. Whether you have a question, a theory about one of my books, or just want to say hi&nbsp;&mdash; use the form below and I&rsquo;ll reply as soon as I can.</p>
+      <p class="contact-intro reveal">I&rsquo;d love to hear from you! Use the form below to get in touch.</p>
 
-      <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST" id="contactForm" novalidate>
+      <form class="contact-form reveal" action="http://api.web3forms.com/submit" method="POST" id="contactForm" novalidate>
         <input type="hidden" name="access_key" value="eb4322df-bf34-4305-849b-4801ca284f08">
         <input type="hidden" name="from_name" value="rebeccazorg.com contact form">
         <!-- honeypot spam trap (hidden from humans) -->
@@ -896,23 +919,52 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <footer class="footer">
   <div class="wrap">
     <div class="footer-socials">
-      <a class="social-link" href="https://www.instagram.com/rebeccazorg/" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
+      <a class="social-link" href="http://www.instagram.com/rebeccazorg/" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
         <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 1.2.05 1.8.24 2.2.4.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.35 1.05.4 2.24.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.19-.24 1.82-.4 2.24-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.35-2.24.4-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.19-.05-1.82-.24-2.24-.4a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.35-1.05-.4-2.24C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.19.24-1.82.4-2.24.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.35 2.24-.4C8.42 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52 0-4.76.07-1.1.05-1.7.23-2.1.39-.53.2-.9.45-1.3.84-.39.4-.63.77-.84 1.3-.16.4-.34 1-.39 2.1C2.55 8.48 2.54 8.85 2.54 12s0 3.52.07 4.76c.05 1.1.23 1.7.39 2.1.2.53.45.9.84 1.3.4.39.77.63 1.3.84.4.16 1 .34 2.1.39 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.07c1.1-.05 1.7-.23 2.1-.39.53-.2.9-.45 1.3-.84.39-.4.63-.77.84-1.3.16-.4.34-1 .39-2.1.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.05-1.1-.23-1.7-.39-2.1a3.5 3.5 0 0 0-.84-1.3 3.5 3.5 0 0 0-1.3-.84c-.4-.16-1-.34-2.1-.39C15.52 4 15.15 4 12 4Zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Zm5.2-3.1a1.17 1.17 0 1 1 0 2.34 1.17 1.17 0 0 1 0-2.34Z"/></svg>
       </a>
-      <a class="social-link" href="https://www.goodreads.com/author/show/48108402.Rebecca_Zorg/" target="_blank" rel="noopener" aria-label="Goodreads (opens in new tab)">
+      <a class="social-link" href="http://www.goodreads.com/author/show/48108402.Rebecca_Zorg/" target="_blank" rel="noopener" aria-label="Goodreads (opens in new tab)">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16.6" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="currentColor">g</text></svg>
       </a>
-      <a class="social-link" href="https://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1" target="_blank" rel="noopener" aria-label="Amazon author page (opens in new tab)">
+      <a class="social-link" href="http://www.amazon.ca/stores/Rebecca-Zorg/author/B0CTLL1KB1" target="_blank" rel="noopener" aria-label="Amazon author page (opens in new tab)">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="15.5" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="currentColor">a</text><path d="M7 16.4c1.5 1.1 3.2 1.7 5 1.7s3.5-.6 5-1.7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
       </a>
-      <a class="social-link" href="https://www.bookbub.com/profile/rebecca-zorg" target="_blank" rel="noopener" aria-label="BookBub (opens in new tab)">
+      <a class="social-link" href="http://www.bookbub.com/profile/rebecca-zorg" target="_blank" rel="noopener" aria-label="BookBub (opens in new tab)">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="currentColor">bb</text></svg>
       </a>
     </div>
-    <p class="footer-cta"><a href="#newsletter">Join the Home Team</a></p>
+    <p class="footer-cta"><a href="http://books.rebeccazorg.com/newsletter" data-open-newsletter>Join the Home Team</a></p>
     <small>&copy; 2026 Rebecca Zorg. All rights reserved.</small>
   </div>
 </footer>
+
+<!-- ============================================================
+     NEWSLETTER POPUP — wired to Rebecca's MailerLite form.
+     Opens once, after the reader scrolls halfway down the page or
+     spends 30 seconds on it, then stays away for 14 days if closed.
+     (Timing settings live in the script at the bottom: NL_DELAY_MS,
+     NL_SCROLL_SHARE, NL_SNOOZE_DAYS.)
+     ============================================================ -->
+<div class="nl-modal" id="nlModal" role="dialog" aria-modal="true" aria-labelledby="newsletter-heading" aria-hidden="true">
+  <div class="newsletter-panel" id="newsletterPanel">
+    <button type="button" class="nl-close" id="nlClose" aria-label="Close newsletter sign-up">&times;</button>
+    <p class="eyebrow">Reader List</p>
+    <h2 id="newsletter-heading">Be first in line.</h2>
+    <!-- EDIT: newsletter pitch -->
+    <p class="newsletter-sub">Get Chapter One from Gabriel&rsquo;s POV, Ivy &amp; Gabriel&rsquo;s playlist, bonus scenes, behind-the-scenes photos, and early book news.</p>
+
+    <form class="signup-form"
+          action="http://assets.mailerlite.com/jsonp/2494668/forms/192364802622883054/subscribe"
+          method="post"
+          id="newsletterForm"
+          novalidate>
+      <label for="email" class="visually-hidden">Email address</label>
+      <input type="email" id="email" name="fields[email]" placeholder="Your email address" autocomplete="email" required>
+      <button type="submit" class="btn" id="newsletterBtn">Join the Home Team</button>
+    </form>
+    <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+    <p class="consent">By signing up you agree to receive Rebecca Zorg's newsletter. Unsubscribe anytime, no hard feelings.</p>
+  </div>
+</div>
 
 <script>
 /* ================================================================
@@ -954,7 +1006,83 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   items.forEach(function(el){ io.observe(el); });
 })();
 
-/* 3. Newsletter form — submits to MailerLite in the background so the
+/* 3. Newsletter popup — opens once per visit window, can be closed with
+      the ×, the Escape key, or a click outside the panel. */
+var NL_DELAY_MS = 30000;      /* open after 30 seconds on the page... */
+var NL_SCROLL_SHARE = 0.5;    /* ...or once half the page has been scrolled */
+var NL_SNOOZE_DAYS = 14;      /* after closing, wait this long before showing again */
+var NL_KEY = 'rz_newsletter_popup';
+
+var nlPopup = (function(){
+  var modal = document.getElementById('nlModal');
+  var closeBtn = document.getElementById('nlClose');
+  var lastFocus = null;
+  var shown = false;
+
+  function remembered(){
+    try{
+      var until = parseInt(localStorage.getItem(NL_KEY) || '0', 10);
+      return until > Date.now();
+    }catch(e){ return false; }
+  }
+  function remember(days){
+    try{ localStorage.setItem(NL_KEY, String(Date.now() + days*86400000)); }catch(e){}
+  }
+  function focusables(){
+    return modal.querySelectorAll('button,input,a[href]');
+  }
+  function open(){
+    shown = true;
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    setTimeout(function(){ document.getElementById('email').focus(); }, 60);
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    remember(NL_SNOOZE_DAYS);
+    if(lastFocus && lastFocus.focus){ lastFocus.focus(); }
+  }
+  function autoOpen(){
+    if(shown || remembered()) return;
+    open();
+  }
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!modal.classList.contains('open')) return;
+    if(e.key === 'Escape'){ close(); return; }
+    if(e.key === 'Tab'){               /* keep keyboard focus inside the popup */
+      var f = focusables(), first = f[0], last = f[f.length-1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* Any link marked data-open-newsletter opens the popup instead of leaving */
+  document.querySelectorAll('[data-open-newsletter]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); open(); });
+  });
+
+  /* Automatic triggers */
+  setTimeout(autoOpen, NL_DELAY_MS);
+  window.addEventListener('scroll', function onScroll(){
+    var doc = document.documentElement;
+    var share = (window.scrollY + window.innerHeight) / doc.scrollHeight;
+    if(share >= NL_SCROLL_SHARE){
+      window.removeEventListener('scroll', onScroll);
+      autoOpen();
+    }
+  }, {passive:true});
+
+  return { remember: remember };
+})();
+
+/* 4. Newsletter form — submits to MailerLite in the background so the
       reader never leaves the page, then swaps the form for an on-brand
       thank-you. If anything goes wrong with the background submission,
       it falls back to MailerLite's own success page (a normal submit),
@@ -987,6 +1115,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         if(json && json.success === false){ throw new Error('rejected'); }
         /* EDIT: newsletter success message */
         panel.classList.add('form-success');
+        nlPopup.remember(365);   /* subscribed: never auto-show again */
         note.innerHTML = 'You&rsquo;re in. Welcome to the Home Team. &#127954; Watch your inbox for bonus scenes, chapters, behind-the-scenes extras, and book news.';
       })
       .catch(function(){
@@ -997,7 +1126,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   });
 })();
 
-/* 4. Contact form — submits to Web3Forms in the background and shows
+/* 5. Contact form — submits to Web3Forms in the background and shows
       a thank-you without leaving the page. Messages arrive at
       rebecca@rebeccazorg.com. */
 (function(){
